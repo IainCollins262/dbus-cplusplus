@@ -1,27 +1,29 @@
 project(libdbus-c++)
 
+set (DBUS_SOURCE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../../src")
+
 add_library(dbus-c++-1 SHARED
-	${CMAKE_SOURCE_DIR}/../src/connection.cpp
-	${CMAKE_SOURCE_DIR}/../src/debug.cpp
-	${CMAKE_SOURCE_DIR}/../src/dispatcher.cpp
-	${CMAKE_SOURCE_DIR}/../src/error.cpp
-	${CMAKE_SOURCE_DIR}/../src/eventloop-integration.cpp
-	${CMAKE_SOURCE_DIR}/../src/eventloop.cpp
-	${CMAKE_SOURCE_DIR}/../src/interface.cpp
-	${CMAKE_SOURCE_DIR}/../src/introspection.cpp
-	${CMAKE_SOURCE_DIR}/../src/message.cpp
-	${CMAKE_SOURCE_DIR}/../src/object.cpp
-	${CMAKE_SOURCE_DIR}/../src/pendingcall.cpp
-	${CMAKE_SOURCE_DIR}/../src/pipe.cpp
-	${CMAKE_SOURCE_DIR}/../src/property.cpp
-	${CMAKE_SOURCE_DIR}/../src/server.cpp
-	${CMAKE_SOURCE_DIR}/../src/types.cpp
-	${CMAKE_SOURCE_DIR}/../src/connection_p.h
-	${CMAKE_SOURCE_DIR}/../src/dispatcher_p.h
-	${CMAKE_SOURCE_DIR}/../src/internalerror.h
-	${CMAKE_SOURCE_DIR}/../src/message_p.h
-	${CMAKE_SOURCE_DIR}/../src/pendingcall_p.h
-	${CMAKE_SOURCE_DIR}/../src/server_p.h
+	${DBUS_SOURCE_PATH}/connection.cpp
+	${DBUS_SOURCE_PATH}/debug.cpp
+	${DBUS_SOURCE_PATH}/dispatcher.cpp
+	${DBUS_SOURCE_PATH}/error.cpp
+	${DBUS_SOURCE_PATH}/eventloop-integration.cpp
+	${DBUS_SOURCE_PATH}/eventloop.cpp
+	${DBUS_SOURCE_PATH}/interface.cpp
+	${DBUS_SOURCE_PATH}/introspection.cpp
+	${DBUS_SOURCE_PATH}/message.cpp
+	${DBUS_SOURCE_PATH}/object.cpp
+	${DBUS_SOURCE_PATH}/pendingcall.cpp
+	${DBUS_SOURCE_PATH}/pipe.cpp
+	${DBUS_SOURCE_PATH}/property.cpp
+	${DBUS_SOURCE_PATH}/server.cpp
+	${DBUS_SOURCE_PATH}/types.cpp
+	${DBUS_SOURCE_PATH}/connection_p.h
+	${DBUS_SOURCE_PATH}/dispatcher_p.h
+	${DBUS_SOURCE_PATH}/internalerror.h
+	${DBUS_SOURCE_PATH}/message_p.h
+	${DBUS_SOURCE_PATH}/pendingcall_p.h
+	${DBUS_SOURCE_PATH}/server_p.h
 )
 
 target_link_libraries(dbus-c++-1

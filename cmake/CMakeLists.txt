@@ -10,13 +10,13 @@ if(COMMAND cmake_policy)
 endif(COMMAND cmake_policy)
 
 # where to look first for cmake modules, before ${CMAKE_ROOT}/Modules/ is checked
-set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/modules")
+set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/modules")
 
 #enable building of shared library
 SET(BUILD_SHARED_LIBS ON)
 
 # include local header first to avoid using old installed header
-set (CMAKE_INCLUDE_PATH ${CMAKE_INCLUDE_PATH} ${CMAKE_SOURCE_DIR}/..)
+set (CMAKE_INCLUDE_PATH ${CMAKE_INCLUDE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/..)
 
 # search for required packages
 find_package(LibExpat)
@@ -32,19 +32,19 @@ message( STATUS "pthread .... ${PTHREAD_LIBS}")
 # do config checks
 INCLUDE(ConfigureChecks.cmake)
 
-# @TODO: how to remove last dir from ${CMAKE_SOURCE_DIR} ?
-SET(DBUS_CPLUSPLUS_SOURCE_DIR ${CMAKE_SOURCE_DIR}/..)
+# @TODO: how to remove last dir from ${CMAKE_CURRENT_SOURCE_DIR} ?
+SET(DBUS_CPLUSPLUS_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/..)
 set(CMAKE_DEBUG_POSTFIX "d")
 SET(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG}  -D_DEBUG")
 
 
-set (LIBRARY_OUTPUT_PATH  ${CMAKE_BINARY_DIR}/bin)
-set (EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/bin)
+set (LIBRARY_OUTPUT_PATH  ${CMAKE_CURRENT_BINARY_DIR}/bin)
+set (EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_BINARY_DIR}/bin)
 
 include_directories(
-	${CMAKE_SOURCE_DIR}/..
-	${CMAKE_SOURCE_DIR}/../include
-	${CMAKE_BINARY_DIR}
+	${CMAKE_CURRENT_SOURCE_DIR}/..
+	${CMAKE_CURRENT_SOURCE_DIR}/../include
+	${CMAKE_CURRENT_BINARY_DIR}
 	${CMAKE_INCLUDE_PATH}
 	${CMAKE_LIBRARY_PATH}
 	${DBUS_INCLUDES}
