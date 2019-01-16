@@ -1,0 +1,22 @@
+include(CheckIncludeFile)
+include(CheckSymbolExists)
+include(CheckTypeSize)
+
+check_include_file(stdint.h     HAVE_STDINT_H)
+check_include_file(stdlib.h     HAVE_STDLIB_H)
+check_include_file(strings.h    HAVE_STRINGS_H)
+check_include_file(string.h     HAVE_STRING_H)
+check_include_file(sys/stat.h   HAVE_SYS_STAT_H)
+check_include_file(sys/types.h  HAVE_SYS_TYPES_H)
+check_include_file(unistd.h     HAVE_UNISTD_H)
+check_include_file(dlfcn.h      HAVE_DLFCN_H)
+check_include_file(expat.h      HAVE_EXPAT_H)
+check_include_file(inttypes.h   HAVE_INTTYPES_H)
+check_include_file(memory.h     HAVE_MEMORY_H)
+
+check_type_size("short"     SIZEOF_SHORT)
+check_type_size("int"       SIZEOF_INT)
+check_type_size("long"      SIZEOF_LONG)
+check_type_size("long long" SIZEOF_LONG_LONG)
+check_type_size("__int64"   SIZEOF___INT64)
+
