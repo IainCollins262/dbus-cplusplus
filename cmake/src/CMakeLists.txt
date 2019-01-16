@@ -2,7 +2,7 @@ project(libdbus-c++)
 
 set (DBUS_SOURCE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../../src")
 
-add_library(dbus-c++-1 SHARED
+add_library(dbus-c++-1 STATIC
 	${DBUS_SOURCE_PATH}/connection.cpp
 	${DBUS_SOURCE_PATH}/debug.cpp
 	${DBUS_SOURCE_PATH}/dispatcher.cpp

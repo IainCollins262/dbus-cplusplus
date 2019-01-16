@@ -12,9 +12,6 @@ endif(COMMAND cmake_policy)
 # where to look first for cmake modules, before ${CMAKE_ROOT}/Modules/ is checked
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/modules")
 
-#enable building of shared library
-SET(BUILD_SHARED_LIBS ON)
-
 # include local header first to avoid using old installed header
 set (CMAKE_INCLUDE_PATH ${CMAKE_INCLUDE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/..)
 
