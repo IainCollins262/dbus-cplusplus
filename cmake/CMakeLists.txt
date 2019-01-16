@@ -15,15 +15,8 @@ set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/modules")
 #enable building of shared library
 SET(BUILD_SHARED_LIBS ON)
 
-if (CYGWIN)
-   set (WIN32)
-endif (CYGWIN)
-
 # include local header first to avoid using old installed header
 set (CMAKE_INCLUDE_PATH ${CMAKE_INCLUDE_PATH} ${CMAKE_SOURCE_DIR}/..)
-
-include(Win32Macros)
-addExplorerWrapper(${CMAKE_PROJECT_NAME})
 
 # search for required packages
 find_package(LibExpat)
@@ -65,12 +58,6 @@ link_directories(
 )
 
 set (EXT ".exe")
-
-########### create config.h ###############
-# better use flags for gcc
-if (MINGW)
-	set (HAVE_GNUC_VARARGS 1)
-endif(MINGW)
 
 # compiler definitions
 add_definitions(-DHAVE_CONFIG_H=1)

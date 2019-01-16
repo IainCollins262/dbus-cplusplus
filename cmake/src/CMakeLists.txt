@@ -12,6 +12,7 @@ add_library(dbus-c++-1 SHARED
 	${CMAKE_SOURCE_DIR}/../src/message.cpp
 	${CMAKE_SOURCE_DIR}/../src/object.cpp
 	${CMAKE_SOURCE_DIR}/../src/pendingcall.cpp
+	${CMAKE_SOURCE_DIR}/../src/pipe.cpp
 	${CMAKE_SOURCE_DIR}/../src/property.cpp
 	${CMAKE_SOURCE_DIR}/../src/server.cpp
 	${CMAKE_SOURCE_DIR}/../src/types.cpp
@@ -24,7 +25,6 @@ add_library(dbus-c++-1 SHARED
 )
 
 target_link_libraries(dbus-c++-1
-	ws2_32
 	${DBUS_LIBS}
 	${PTHREAD_LIBS}
 )
