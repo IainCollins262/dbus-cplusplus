@@ -75,6 +75,8 @@ public:
 
   Message Set(const CallMessage &);
 
+  Message GetAll(const CallMessage &);
+
 protected:
 
   virtual void on_get_property(InterfaceAdaptor &/*interface*/, const std::string &/*property*/, Variant &/*value*/)
