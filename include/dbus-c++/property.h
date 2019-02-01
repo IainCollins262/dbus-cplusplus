@@ -58,6 +58,12 @@ public:
     return *this;
   }
 
+  void clear()
+  {
+    if (_data)
+      _data->value.clear();
+  }
+
 private:
 
   PropertyData *_data;
