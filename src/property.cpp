@@ -123,6 +123,18 @@ Message PropertiesAdaptor::GetAll(const CallMessage &call)
   return reply;
 }
 
+void PropertiesAdaptor::PropertiesChanged(const std::string& interface,
+                                          const std::map<std::string, ::DBus::Variant>& changed_properties,
+                                          const std::vector<std::string>& invalidated_properties)
+{
+  ::DBus::SignalMessage sig("PropertiesChanged");
+  ::DBus::MessageIter wi = sig.writer();
+  wi << interface;
+  wi << changed_properties;
+  wi << invalidated_properties;
+  emit_signal(sig);
+}
+
 IntrospectedInterface *PropertiesAdaptor::introspect() const
 {
   static IntrospectedArgument Get_args[] =
@@ -152,8 +164,18 @@ IntrospectedInterface *PropertiesAdaptor::introspect() const
     { "GetAll", GetAll_args },
     { 0, 0 }
   };
+
+  static IntrospectedArgument PropertiesChanged_args[] =
+  {
+    { "interface_name", "s", false },
+    { "changed_properties", "e{sv}", false },
+    { "invalidated_properties", "as", false },
+    { 0, 0, 0 }
+  };
+
   static IntrospectedMethod Properties_signals[] =
   {
+    { "PropertiesChanged", PropertiesChanged_args },
     { 0, 0 }
   };
   static IntrospectedProperty Properties_properties[] =

@@ -50,6 +50,11 @@ public:
     return _data->value.operator T();
   }
 
+  Variant value() const
+  {
+    return _data->value;
+  }
+
   PropertyAdaptor &operator = (const T &t)
   {
     _data->value.clear();
@@ -83,6 +88,11 @@ public:
 
   Message GetAll(const CallMessage &);
 
+  /* signal emitter */
+  void PropertiesChanged(const std::string& interface,
+                         const std::map<std::string, ::DBus::Variant>& changed_properties,
+                         const std::vector<std::string>& invalidated_properties);
+
 protected:
 
   virtual void on_get_property(InterfaceAdaptor &/*interface*/, const std::string &/*property*/, Variant &/*value*/)
@@ -102,7 +112,7 @@ public:
 
   Variant Get(const std::string &interface, const std::string &property);
 
-  void Set(const std::string &interface, const std::string &property, const Variant &value);
+  void Set(const std::string &interface, const std::string &property, const Variant &value);                           
 };
 
 } /* namespace DBus */
